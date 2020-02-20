@@ -79,9 +79,7 @@ module OmniAuth
       end
 
       def login_url(service)
-        target_url = service.split('?').first
-        parms = { TARGET: target_url }
-        cas_url + append_params(options.login_url, parms)
+        cas_url + append_params(options.logout_url, { service: service})
       end
       def logout_url(service)
         cas_url + append_params(options.logout_url, { service: service})
